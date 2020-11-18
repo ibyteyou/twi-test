@@ -1,15 +1,23 @@
 <template lang="pug">
   .content-comment
-    img.avatar(src="../assets/avatar.png")
-    p {{ content }}
+    img.avatar(:src="user.avatar || defaultAvatar")
+    p {{ text }}
 </template>
 
 <script>
+  import defaultAvatar from '../assets/avatar.png'
+
   export default {
+    data: () => ({
+      defaultAvatar
+    }),
     props: {
-      content: {
+      text: {
         type: String,
-        default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla placerat magna mattis purus tempor maximus. Lorem ipsum dolor sit amet'
+        default: '%CommentContent%'
+      },
+      user: {
+        type: Object
       }
     }
   }

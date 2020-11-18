@@ -1,17 +1,19 @@
 <template lang="pug">
   #sidebar-layout
     h3 Самые часто обсуждаемые посты
-    discussion-post(count="2")
-    discussion-post(count="10")
-    discussion-post(count="4")
+    discussion-post(v-for="(d, k) in discussions", :count="d.count", :key="k", :text="d.text")
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import DiscussionPost from '../components/discussion-post'
 
   export default {
     components: {
       DiscussionPost
+    },
+    computed: {
+      ...mapGetters(['discussions'])
     }
   }
 </script>

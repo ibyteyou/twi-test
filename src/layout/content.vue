@@ -3,21 +3,19 @@
     #post-input
       input(placeholder="О чём вы думаете")
       button Поделиться
-    .content-block
-      .content-post
-        img.avatar(src="../assets/avatar.png")
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla placerat magna mattis purus tempor maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-      content-comment
-      content-comment
-      content-comment
+    content-post(v-for="(p, k) in posts", :key="k", :post="p")
 </template>
 
 <script>
-  import ContentComment from '../components/content-comment'
+  import { mapGetters } from 'vuex'
+  import ContentPost from '../components/content-post'
 
   export default {
     components: {
-      ContentComment
+      ContentPost
+    },
+    computed: {
+      ...mapGetters(['posts'])
     }
   }
 </script>
@@ -29,8 +27,8 @@
       width: calc(100% - 125px)
     button
       padding: .25em 1em
-  .content-block
-    .content-post
+  .content-post
+    .content-post-body
       display: flex
       border: 1px solid #000
       img.avatar
