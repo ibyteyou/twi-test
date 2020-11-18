@@ -1,28 +1,47 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  #app
+    header
+      a(:href="theme === 'light' ? null : '@theme-light'" @click.prevent="setTheme('light')") Светлая тема
+      =" "
+      a(:href="theme === 'dark' ? null : '@theme-dark'" @click.prevent="setTheme('dark')") Тёмная тема
+    content-layout
+    sidebar-layout
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import ContentLayout from './layout/content'
+  import SidebarLayout from './layout/sidebar'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      ContentLayout, SidebarLayout
+    },
+    data: () => ({
+      theme: 'light'
+    }),
+    methods: {
+      setTheme (theme) {
+        this.theme = theme
+      }
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+  #app
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-around
+    padding: 1em 3em
+    font-family: Avenir, Helvetica, Arial, sans-serif
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    color: #2c3e50
+    > header
+      flex: 0 0 100%
+    > #content-layout
+      flex: 1 0 30%
+    > #sidebar-layout
+      flex: 0 0 25%
 </style>
