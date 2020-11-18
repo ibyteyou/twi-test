@@ -1,21 +1,33 @@
 <template lang="pug">
   #content-layout
     #post-input
-      input(placeholder="О чём вы думаете")
-      button Поделиться
+      input(v-model="newPost" placeholder="О чём вы думаете" @keypress.enter="_addPost")
+      button(:disabled="!newPost.length" @click="_addPost") Поделиться
     content-post(v-for="(p, k) in posts", :key="k", :post="p")
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   import ContentPost from '../components/content-post'
 
   export default {
+    data: () => ({
+      newPost: ''
+    }),
     components: {
       ContentPost
     },
     computed: {
       ...mapGetters(['posts'])
+    },
+    methods: {
+      ...mapActions(['addPost']),
+      _addPost () {
+        if (!this.newPost.length) return
+
+        this.addPost(this.newPost)
+        this.newPost = ''
+      }
     }
   }
 </script>
@@ -33,6 +45,7 @@
       button
         padding: .25em 1em
     .content-post
+      margin-bottom: .25em
       .content-post-body
         display: flex
         border: 1px solid #000

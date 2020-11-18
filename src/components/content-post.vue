@@ -30,6 +30,13 @@
       demoLastComments: ({ post }) => post && post.comments && post.comments.slice(Math.max(0, post.comments.length - 3), post.comments.length),
       postContent: ({ post, postContentCuted }) => postContentCuted || post.content
     },
+    watch: {
+      post () {
+        this.demoImgPreview = null
+        this.postContentCuted = null
+        this.validateContent()
+      }
+    },
     methods: {
       validateContent () {
         if (!this.post.content) return

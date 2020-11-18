@@ -4,6 +4,10 @@
       a(:href="theme === 'light' ? null : '@theme-light'" @click.prevent="setTheme('light')") Светлая тема
       =" "
       a(:href="theme === 'dark' ? null : '@theme-dark'" @click.prevent="setTheme('dark')") Тёмная тема
+      =" "
+      a(href="@clear" @click.prevent="clearPosts") clear
+      =" "
+      a(href="@clear" @click.prevent="setDefaultPosts") default
     content-layout
     sidebar-layout
 </template>
@@ -11,6 +15,7 @@
 <script>
   import ContentLayout from './layout/content'
   import SidebarLayout from './layout/sidebar'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'App',
@@ -21,6 +26,7 @@
       theme: 'light'
     }),
     methods: {
+      ...mapActions(['clearPosts', 'setDefaultPosts']),
       setTheme (theme) {
         this.theme = theme
       }
