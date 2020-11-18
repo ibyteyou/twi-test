@@ -26,7 +26,8 @@ const DefaultData = [{
   user: DefaultUser
 }, {
   date: DefaultDate,
-  content: `{IMAGE_PREVIEW}${DefaultText}`,
+  content: `asdasdhttps://kubalubra.is/wp-content/uploads/2017/11/default-thumbnail.jpg
+    ${DefaultText}`,
   comments: DefaultComments,
   user: DefaultUser
 }, {
