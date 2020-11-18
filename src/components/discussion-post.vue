@@ -17,6 +17,9 @@
 </script>
 
 <style lang="sass">
+  #app.theme-dark
+    .discussion-post .counter
+      border-color: #fff
   .discussion-post
     display: flex
     .counter

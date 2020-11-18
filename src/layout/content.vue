@@ -3,7 +3,8 @@
     #post-input
       input(v-model="newPost" placeholder="О чём вы думаете" @keypress.enter="_addPost")
       button(:disabled="!newPost.length" @click="_addPost") Поделиться
-    content-post(v-for="(p, k) in posts", :key="k", :post="p")
+    h3(v-if="!posts.length") Постов нет
+    content-post(v-else v-for="(p, k) in posts", :key="k", :post="p")
 </template>
 
 <script>
@@ -33,8 +34,13 @@
 </script>
 
 <style lang="sass">
+  #app.theme-dark
+    .content-post .content-post-body
+      border-color: #fff
   #content-layout
     margin-right: 3em
+    h3
+      font-weight: 300
     #post-input
       margin-bottom: 1em
       display: flex

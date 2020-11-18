@@ -22,4 +22,5 @@
   #sidebar-layout
     h3
       margin-top: 0
+      font-weight: 400
 </style>
