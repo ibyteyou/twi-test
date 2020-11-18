@@ -1,6 +1,6 @@
 <template lang="pug">
   .discussion-post
-    span.counter {{ count }}
+    div.counter {{ count }}
     p {{ text }}
 </template>
 
@@ -17,4 +17,16 @@
 </script>
 
 <style lang="sass">
+  .discussion-post
+    display: flex
+    .counter
+      flex: 0 0 30px
+      width: 30px
+      height: 30px
+      border-radius: 50%
+      border: 1px solid #000
+      display: block
+      margin-right: 1em
+      text-align: center
+      line-height: 30px
 </style>

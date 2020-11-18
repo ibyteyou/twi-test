@@ -1,7 +1,7 @@
 <template lang="pug">
   .content-post
     .content-post-body
-      img.avatar(:src="post.user.avatar || defaultAvatar")
+      img-avatar(:user="post.user")
       p {{ post.content }}
     content-comment(v-for="(c, k) in demoLastComments", :key="k", :text="c.text", :user="c.user")
 </template>
@@ -25,6 +25,3 @@
     }
   }
 </script>
-
-<style lang="sass">
-</style>

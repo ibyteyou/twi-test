@@ -21,24 +21,33 @@
 </script>
 
 <style lang="sass">
-  #post-input
-    input
-      height: 1.5em
-      width: calc(100% - 125px)
-    button
-      padding: .25em 1em
-  .content-post
-    .content-post-body
+  #content-layout
+    margin-right: 3em
+    #post-input
+      margin-bottom: 1em
       display: flex
-      border: 1px solid #000
-      img.avatar
-        width: 75px
-        height: 75px
-        border-radius: 50%
-    .content-comment
-      display: flex
-      img.avatar
-        width: 50px
-        height: 50px
-        border-radius: 50%
+      justify-content: space-between
+      input
+        height: 1.5em
+        width: calc(100% - 105px - 2em)
+      button
+        padding: .25em 1em
+    .content-post
+      .content-post-body
+        display: flex
+        border: 1px solid #000
+        padding: .5em
+        img.avatar
+          width: 50px
+          height: 50px
+          border-radius: 50%
+          margin-right: 2em
+      .content-comment
+        display: flex
+        padding: .5em
+        img.avatar
+          width: 35px
+          height: 35px
+          border-radius: 50%
+          margin-right: 1em
 </style>

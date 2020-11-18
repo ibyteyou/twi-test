@@ -19,4 +19,7 @@
 </script>
 
 <style lang="sass">
+  #sidebar-layout
+    h3
+      margin-top: 0
 </style>

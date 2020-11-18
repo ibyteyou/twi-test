@@ -29,6 +29,8 @@
 </script>
 
 <style lang="sass">
+  p
+    margin: 0
   #app
     display: flex
     flex-flow: row wrap
@@ -40,6 +42,7 @@
     color: #2c3e50
     > header
       flex: 0 0 100%
+      margin-bottom: 1em
     > #content-layout
       flex: 1 0 30%
     > #sidebar-layout
